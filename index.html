@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Renz1</title>
+<meta name="description" content="Flutter developer" />
+<style>
+/* --- БАЗОВЫЕ СТИЛИ --- */
+:root{
+--bg1: #0f172a; /* тёмный фон */
+--accent: #6ee7b7;
+--card: rgba(255,255,255,0.05);
+--glass: rgba(255,255,255,0.06);
+--text: #e6eef8;
+}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+body{
+background: linear-gradient(135deg,var(--bg1),#071124 60%);
+color:var(--text);
+-webkit-font-smoothing:antialiased;
+display:flex;align-items:center;justify-content:center;padding:24px;
+}
+
+
+/* контейнер карточки */
+.card{
+width:100%;max-width:880px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+border-radius:18px;box-shadow:0 10px 30px rgba(2,6,23,0.6);padding:28px;display:flex;gap:24px;align-items:center;
+backdrop-filter: blur(6px);
+}
+
+
+/* фото */
+.avatar{
+width:160px;height:160px;border-radius:14px;flex:0 0 160px;object-fit:cover;border:2px solid rgba(255,255,255,0.06);
+}
+
+
+/* контент справа */
+.info{flex:1;min-width:0}
+h1{margin:0 0 6px;font-size:26px}
+p.lead{margin:0 0 14px;color:rgba(230,238,248,0.8)}
+
+
+/* иконки соцсетей */
+.links{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:var(--glass);text-decoration:none;color:var(--text);font-weight:600}
+.btn svg{width:20px;height:20px;opacity:0.95}
+
+
+/* маленькие подсказки */
+.meta{margin-top:12px;color:rgba(230,238,248,0.6);font-size:13px}
+
+
+/* адаптив */
+@media (max-width:720px){
+.card{flex-direction:column;align-items:center;text-align:center}
+.avatar{width:120px;height:120px}
+.info{width:100%}
+}
+</style>
+</head>
+<body>
+<main class="card">
+
+<img class="avatar" src="avatar.jpg" alt="Фото" onerror="this.style.display='none'" />
+
+
+<section class="info">
+<h1>Дехтяренко Дмитрий Игоревич</h1>
+<p class="lead">Che/l</p>
+
+
+<div class="links">
+<!-- GitHub -->
+<a class="btn" href="https://github.com/renz1k" target="_blank" rel="noopener noreferrer">
+<!-- GitHub SVG -->
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 0.5C5.73 0.5 0.75 5.48 0.75 11.75c0 4.93 3.19 9.11 7.62 10.59.56.1.77-.24.77-.54 0-.27-.01-1.17-.02-2.12-3.1.67-3.76-1.49-3.76-1.49-.51-1.29-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.17 1.73 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.74.39-1.23.71-1.51-2.47-.28-5.06-1.23-5.06-5.46 0-1.21.43-2.2 1.14-2.98-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.08 1.14.9-.25 1.86-.38 2.82-.38.96 0 1.92.13 2.82.38 2.14-1.44 3.08-1.14 3.08-1.14.61 1.53.22 2.66.11 2.94.71.78 1.14 1.77 1.14 2.98 0 4.24-2.6 5.17-5.08 5.45.4.34.76 1.02.76 2.06 0 1.49-.01 2.69-.01 3.06 0 .3.2.65.77.54C20.06 20.86 23.25 16.68 23.25 11.75 23.25 5.48 18.27.5 12 .5z" fill="currentColor"/>
+</svg>
+GitHub
+</a>
+
+
+<!-- Telegram -->
+<a class="btn" href="https://t.me/PbTH34" target="_blank" rel="noopener noreferrer">
+<!-- Telegram SVG -->
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M21.53 2.47L2.47 10.68c-.97.36-.95 1.56.04 1.87l4.1 1.25 1.75 5.73c.28.92 1.56.86 1.77-.08l2.13-7.69 4.92 3.52c.86.61 2.04.03 2.11-1.01l.87-13.07c.06-1.01-1.03-1.57-1.86-1.05z" fill="currentColor"/>
+</svg>
+Telegram
+</a>
+
+
+
+<a class="btn" href="mailto:mrdima_aysdehtyarenko@mail.ru" target="_blank" rel="noopener noreferrer">Email</a>
+</div>
+
+
+<div class="meta">Сайт на GitHub Pages · домен kolobokpowesilsya.me</div>
+</section>
+</main>
+
+
+</body>
+</html>
