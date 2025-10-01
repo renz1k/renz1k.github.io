@@ -6,6 +6,8 @@
   <title>Renz1</title>
   <meta name="description" content="Flutter developer" />
   <style>
+    *,*::before,*::after{box-sizing:border-box}
+
     :root{
       --bg-image: url('bg.jpg');
       --purple-deep: #0b0426;
@@ -23,14 +25,17 @@
     body{
       color:var(--text);
       -webkit-font-smoothing:antialiased;
-      display:flex;align-items:center;justify-content:center;padding:32px;
+      display:flex;align-items:center;justify-content:center;
+      /* используем box-sizing (см. выше) — padding не добавляет к min-height */
+      padding:32px;
+      min-height:100vh;
       background-image: linear-gradient(120deg, rgba(43,11,74,0.55), rgba(255,110,199,0.12)), var(--bg-image);
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      min-height:100vh;
     }
 
+    /* мягкие радиальные блики */
     body::after{
       content:"";position:fixed;inset:0;pointer-events:none;
       background: radial-gradient(800px 400px at 25% 30%, rgba(155,92,255,0.12), transparent 20%),
@@ -39,28 +44,36 @@
     }
 
     .card{
-      width:100%;max-width:880px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.05));
-      border-radius:18px;box-shadow:0 12px 40px rgba(2,6,23,0.65);
+      width:100%;max-width:880px;
+      border-radius:18px;
+      box-shadow:0 12px 40px rgba(2,6,23,0.65);
       padding:28px;display:flex;gap:24px;align-items:center;backdrop-filter: blur(8px);
       border:1px solid rgba(255,255,255,0.04);
       background-color:var(--card-bg);
       position:relative;overflow:hidden;
     }
 
+    /* overlay теперь ниже содержимого (z-index:0) */
     .card::before{
       content:"";position:absolute;inset:0;pointer-events:none;
       background: linear-gradient(120deg, rgba(155,92,255,0.04), rgba(255,110,199,0.02));
+      z-index:0;
     }
 
-    .avatar{width:160px;height:160px;border-radius:14px;flex:0 0 160px;object-fit:cover;border:2px solid rgba(255,255,255,0.06);}
+    /* все основные дети карточки ставим выше overlay */
+    .card > *{position:relative;z-index:1}
+
+    /* фото — display:block убирает белые «descender» отступы под img */
+    .avatar{width:160px;height:160px;border-radius:14px;flex:0 0 160px;object-fit:cover;border:2px solid rgba(255,255,255,0.06);display:block}
 
     .info{flex:1;min-width:0}
     h1{margin:0 0 6px;font-size:26px;color:var(--text);letter-spacing:0.2px}
     p.lead{margin:0 0 14px;color:var(--muted)}
 
     .links{display:flex;gap:12px;flex-wrap:wrap}
+    /* SVG в кнопке — display:block для ровного вертикального центрирования */
     .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));text-decoration:none;color:var(--text);font-weight:600;border:1px solid rgba(255,255,255,0.04)}
-    .btn svg{width:20px;height:20px;opacity:0.98}
+    .btn svg{width:20px;height:20px;opacity:0.98;display:block;flex-shrink:0}
 
     .btn--accent{
       background: linear-gradient(90deg, rgba(155,92,255,0.14), rgba(255,110,199,0.12));
@@ -84,19 +97,19 @@
 
     <section class="info">
       <h1>Дехтяренко Дмитрий Игоревич</h1>
-      <p class="lead">Che/l</p>
+      <p class="lead">Flutter Dev</p>
 
       <div class="links">
         <a class="btn btn--accent" href="https://github.com/renz1k" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0.5C5.73 0.5 0.75 5.48 0.75 11.75c0 4.93 3.19 9.11 7.62 10.59.56.1.77-.24.77-.54 0-.27-.01-1.17-.02-2.12-3.1.67-3.76-1.49-3.76-1.49-.51-1.29-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.17 1.73 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.74.39-1.23.71-1.51-2.47-.28-5.06-1.23-5.06-5.46 0-1.21.43-2.2 1.14-2.98-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.08 1.14.9-.25 1.86-.38 2.82-.38.96 0 1.92.13 2.82.38 2.14-1.44 3.08-1.14 3.08-1.14.61 1.53.22 2.66.11 2.94.71.78 1.14 1.77 1.14 2.98 0 4.24-2.6 5.17-5.08 5.45.4.34.76 1.02.76 2.06 0 1.49-.01 2.69-.01 3.06 0 .3.2.65.77.54C20.06 20.86 23.25 16.68 23.25 11.75 23.25 5.48 18.27.5 12 .5z" fill="currentColor"/>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
+            <path d="M12 0.5C5.73 0.5 0.75 5.48 0.75 11.75c0 4.93 3.19 9.11 7.62 10.59.56.1.77-.24.77-.54 0-.27-.01-1.17-.02-2.12-3.1.67-3.76-1.49-3.76-1.49-.51-1.29-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.17 1.73 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.74.39-1.23.71-1.51-2.47-.28-5.06-1.23-5.06-5.46 0-1.21.43-2.2 1.14-2.98-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.08 1.14.9-.25 1.86-.38 2.82-.38.96 0 1.92.13 2.82.38 2.14-1.44 3.08-1.14 3.08-1.14.61 1.53.22 2.66.11 2.94.71.78 1.14 1.77 1.14 2.98 0 4.24-2.6 5.17-5.08 5.45.4.34.76 1.02.76 2.06 0 1.49-.01 2.69-.01 3.06 0 .3.2.65.77.54C20.06 20.86 23.25 16.68 23.25 11.75 23.25 5.48 18.27.5 12 .5z"/>
           </svg>
           GitHub
         </a>
 
-        <a class="btn" href="https://t.me/PbTH34" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M21.53 2.47L2.47 10.68c-.97.36-.95 1.56.04 1.87l4.1 1.25 1.75 5.73c.28.92 1.56.86 1.77-.08l2.13-7.69 4.92 3.52c.86.61 2.04.03 2.11-1.01l.87-13.07c.06-1.01-1.03-1.57-1.86-1.05z" fill="currentColor"/>
+        <a class="btn" href="https://t.me/PbTH34" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
+            <path d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0zm54.3 80.7l-22.9 108.2c-1.7 7.5-6.2 9.3-12.6 5.8l-34.9-25.7-16.8 16.2c-1.8 1.8-3.3 3.3-6.7 3.3l2.4-34.2 62.2-56.3c2.7-2.4-0.6-3.8-4.1-1.4L82.7 125.3 48.1 112.6c-7.6-2.5-7.7-7.6 1.6-11.2L170.7 76c6.9-2.1 12.3 1.2 3.6 4.7z"/>
           </svg>
           Telegram
         </a>
@@ -104,7 +117,7 @@
         <a class="btn" href="mailto:mrdima_aysdehtyarenko@mail.ru" target="_blank" rel="noopener noreferrer">Email</a>
       </div>
 
-      <div class="meta">Сайт на GitHub Pages · домен kolobokpowesilsya.me</div>
+      <div class="meta">Che/l</div>
     </section>
   </main>
 </body>
