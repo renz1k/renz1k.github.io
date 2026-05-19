@@ -1,95 +1,638 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Политика конфиденциальности — Anekdots B</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Политика конфиденциальности приложения Anekdots B" />
+  <title>Политика конфиденциальности — Анекдоты Б</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0426;
-      color: #f4edf9;
-      padding: 32px;
-      line-height: 1.6;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .card {
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #0b0426 0%, #1a0a3a 100%);
+      color: #e4dff4;
+      line-height: 1.7;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
       max-width: 900px;
-      margin: auto;
-      background: rgba(20,8,35,0.6);
-      padding: 24px;
-      border-radius: 16px;
+      margin: 0 auto;
     }
-    h1, h2 { color: #ff6ec7; }
-    a { color: #9b5cff; }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 30px 0;
+      border-bottom: 2px solid rgba(155, 92, 255, 0.2);
+    }
+
+    .logo {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #ff6ec7 0%, #9b5cff 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin-bottom: 15px;
+      box-shadow: 0 8px 24px rgba(255, 110, 199, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      background: linear-gradient(135deg, #ff6ec7 0%, #9b5cff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      color: #999;
+      font-size: 0.95em;
+    }
+
+    .toc {
+      background: rgba(30, 15, 50, 0.8);
+      border: 1px solid rgba(155, 92, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 30px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .toc h2 {
+      color: #ff6ec7;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+
+    .toc ol {
+      margin-left: 20px;
+    }
+
+    .toc li {
+      margin: 8px 0;
+    }
+
+    .toc a {
+      color: #9b5cff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .toc a:hover {
+      color: #ff6ec7;
+      text-decoration: underline;
+    }
+
+    .content {
+      background: rgba(20, 8, 35, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(155, 92, 255, 0.1);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      scroll-margin-top: 20px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      color: #ff6ec7;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(155, 92, 255, 0.3);
+    }
+
+    h3 {
+      color: #9b5cff;
+      font-size: 1.3em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      color: #d4cde6;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #d4cde6;
+    }
+
+    strong {
+      color: #ff6ec7;
+    }
+
+    a {
+      color: #9b5cff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      color: #ff6ec7;
+      border-bottom-color: #ff6ec7;
+    }
+
+    .highlight {
+      background: rgba(155, 92, 255, 0.2);
+      border-left: 3px solid #9b5cff;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .highlight p {
+      margin: 0;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(155, 92, 255, 0.2);
+    }
+
+    th {
+      background: rgba(155, 92, 255, 0.1);
+      color: #ff6ec7;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: rgba(155, 92, 255, 0.05);
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, rgba(255, 110, 199, 0.1) 0%, rgba(155, 92, 255, 0.1) 100%);
+      border: 1px solid rgba(155, 92, 255, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .contact-box h3 {
+      margin-top: 0;
+    }
+
+    .contact-item {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon {
+      font-size: 1.2em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 2px solid rgba(155, 92, 255, 0.2);
+      color: #999;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .warning {
+      background: rgba(255, 110, 199, 0.1);
+      border-left: 4px solid #ff6ec7;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .success {
+      background: rgba(100, 200, 150, 0.1);
+      border-left: 4px solid #64c896;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      header {
+        padding: 20px 0;
+      }
+    }
+
+    /* Кнопка "Наверх" */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ff6ec7 0%, #9b5cff 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(255, 110, 199, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 110, 199, 0.6);
+    }
+
+    .scroll-to-top.show {
+      display: flex;
+    }
   </style>
 </head>
 <body>
-    <div class="card">
+  <div class="container">
+    <header>
+      <div class="logo">😂</div>
+      <h1>Политика конфиденциальности</h1>
+      <p style="color: #ff6ec7; font-weight: 600; margin-top: 10px;">Anekdots B</p>
+      <p class="meta">Последнее обновление: май 2026</p>
+    </header>
 
-    <div style="text-align:center; margin-bottom:20px;">
-      <img src="avatar.jpg" style="width:80px;height:80px;border-radius:12px;" />
-      <p style="opacity:0.7;">Anekdots B</p>
+    <!-- Таблица содержания -->
+    <div class="toc">
+      <h2>📑 Содержание</h2>
+      <ol>
+        <li><a href="#section-1">Какие данные мы собираем</a></li>
+        <li><a href="#section-2">Firebase сервисы</a></li>
+        <li><a href="#section-3">Crashlytics (отчёты об ошибках)</a></li>
+        <li><a href="#section-4">Локальное хранение данных</a></li>
+        <li><a href="#section-5">Уведомления</a></li>
+        <li><a href="#section-6">Использование интернета</a></li>
+        <li><a href="#section-7">Реклама и монетизация</a></li>
+        <li><a href="#section-8">Права пользователя</a></li>
+        <li><a href="#section-9">Изменение политики</a></li>
+        <li><a href="#section-10">Контакты</a></li>
+      </ol>
     </div>
-    
-    <h1>Политика конфиденциальности — Анекдоты Б</h1>
 
-    <p>Последнее обновление: май 2026</p>
+    <div class="content">
+      <!-- Секция 1 -->
+      <div class="section" id="section-1">
+        <h2>1. Какие данные мы собираем</h2>
+        <p>
+          Приложение <strong>не собирает персональные данные</strong> пользователей,
+          такие как имя, номер телефона, email, адрес, местоположение или социальные аккаунты.
+        </p>
 
-    <h2>1. Какие данные мы собираем</h2>
-    <p>
-      Приложение <b>не собирает персональные данные</b> пользователей, такие как имя, номер телефона, email или аккаунты.
-    </p>
+        <h3>Что собирается автоматически:</h3>
+        <ul>
+          <li><strong>Технические данные:</strong> модель устройства, версия ОС, версия приложения</li>
+          <li><strong>ID устройства:</strong> анонимный идентификатор для Firebase</li>
+          <li><strong>Данные об ошибках:</strong> информация о крашах (через Crashlytics)</li>
+          <li><strong>Данные уведомлений:</strong> статус доставки push-уведомлений</li>
+        </ul>
 
-    <p>Однако используются сторонние сервисы:</p>
-    <ul>
-      <li>Firebase Firestore — загрузка анекдотов</li>
-      <li>Firebase Cloud Messaging — push-уведомления</li>
-      <li>Firebase Crashlytics — отчёты об ошибках</li>
-    </ul>
+        <div class="success">
+          <p>✅ <strong>Мы НЕ собираем:</strong> Имена, номера, email, местоположение, истории браузера, контакты</p>
+        </div>
+      </div>
 
-    <h2>2. Crashlytics (отчёты об ошибках)</h2>
-    <p>
-      Firebase Crashlytics автоматически собирает техническую информацию об ошибках:
-      состояние приложения, модель устройства, версию ОС и stack trace.
-      Эти данные используются только для улучшения стабильности приложения.
-    </p>
+      <!-- Секция 2 -->
+      <div class="section" id="section-2">
+        <h2>2. Firebase сервисы</h2>
+        <p>Приложение использует сервисы Google Firebase:</p>
 
-    <h2>3. Локальное хранение данных</h2>
-    <p>
-      Приложение хранит данные локально на устройстве пользователя:
-      избранные анекдоты, настройки и кэшированные данные (Hive / SharedPreferences).
-    </p>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Сервис</th>
+                <th>Назначение</th>
+                <th>Данные</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Firestore</strong></td>
+                <td>Загрузка анекдотов</td>
+                <td>Анекдоты, ID устройства</td>
+              </tr>
+              <tr>
+                <td><strong>Cloud Messaging</strong></td>
+                <td>Push-уведомления</td>
+                <td>Токены устройств, статус доставки</td>
+              </tr>
+              <tr>
+                <td><strong>Crashlytics</strong></td>
+                <td>Отчёты об ошибках</td>
+                <td>Stack trace, версия ОС, модель устройства</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <h2>4. Уведомления</h2>
-    <p>
-      Используются Firebase Cloud Messaging и локальные уведомления.
-      Персональные данные для уведомлений не используются.
-      Уведомления служат только для напоминаний.
-    </p>
+        <div class="highlight">
+          <p>💡 Google собирает эти данные в соответствии со своей
+          <a href="https://policies.google.com/privacy" target="_blank">политикой конфиденциальности</a>.
+          Мы не имеем доступа к вашему Google аккаунту.</p>
+        </div>
+      </div>
 
-    <h2>5. Использование интернета</h2>
-    <p>
-      Приложение использует интернет для загрузки анекдотов и работы Firebase-сервисов.
-    </p>
+      <!-- Секция 3 -->
+      <div class="section" id="section-3">
+        <h2>3. Crashlytics (отчёты об ошибках)</h2>
+        <p>
+          Firebase Crashlytics автоматически собирает информацию об ошибках приложения для улучшения его стабильности.
+        </p>
 
-    <h2>6. Реклама и монетизация</h2>
-    <p>
-      В будущем приложение может содержать рекламу.
-      В этом случае политика конфиденциальности будет обновлена.
-    </p>
+        <h3>Собираемая информация:</h3>
+        <ul>
+          <li>Stack trace (трассировка ошибки)</li>
+          <li>Версия ОС (Android/iOS)</li>
+          <li>Модель устройства</li>
+          <li>Версия приложения</li>
+          <li>Время ошибки</li>
+          <li><strong>БЕЗ:</strong> Вашего контента, имён, email</li>
+        </ul>
 
-    <h2>7. Контакты</h2>
-    <p>Email: <a href="mailto:klaHip@yandex.ru">mrdima_aysdehtyarenko@mail.ru</a></p>
-    <p>Telegram: <a href="https://t.me/banochkapivchika">@pbth34</a></p>
+        <div class="warning">
+          <p>⚠️ <strong>Важно:</strong> Crashlytics собирает данные ТОЛЬКО о ошибках.
+          Если приложение работает без проблем, данные не отправляются.</p>
+        </div>
+      </div>
 
-    <h2>Пользовательское соглашение</h2>
-    <p>
-      Используя приложение, вы соглашаетесь использовать его только в личных целях.
-      Разработчик не несёт ответственности за содержание анекдотов.
-      Приложение может содержать нецензурную лексику (16+).
-    </p>
+      <!-- Секция 4 -->
+      <div class="section" id="section-4">
+        <h2>4. Локальное хранение данных</h2>
+        <p>Некоторые данные хранятся локально на вашем устройстве:</p>
 
+        <ul>
+          <li><strong>Избранные анекдоты</strong> — сохраняются в локальной БД (Hive)</li>
+          <li><strong>Настройки приложения</strong> — выбор темы, язык и т.д. (SharedPreferences)</li>
+          <li><strong>Кэш</strong> — загруженные анекдоты для быстрого доступа</li>
+        </ul>
+
+        <div class="success">
+          <p>✅ Все эти данные хранятся <strong>только на вашем устройстве</strong>
+          и не отправляются на серверы.</p>
+        </div>
+      </div>
+
+      <!-- Секция 5 -->
+      <div class="section" id="section-5">
+        <h2>5. Уведомления</h2>
+        <p>
+          Приложение использует <strong>Firebase Cloud Messaging</strong> (FCM)
+          и локальные уведомления для отправки напоминаний.
+        </p>
+
+        <h3>Как отключить уведомления:</h3>
+        <ul>
+          <li><strong>В приложении:</strong> Настройки → Уведомления → Отключить</li>
+          <li><strong>На устройстве (Android):</strong> Параметры → Приложения → Anekdots B → Уведомления → Отключить</li>
+          <li><strong>На устройстве (iOS):</strong> Параметры → Уведомления → Anekdots B → Отключить</li>
+        </ul>
+
+        <p>
+          <strong>Персональные данные не используются</strong> для отправки уведомлений.
+          Они отправляются всем пользователям одинаково.
+        </p>
+      </div>
+
+      <!-- Секция 6 -->
+      <div class="section" id="section-6">
+        <h2>6. Использование интернета</h2>
+        <p>Приложение подключается к интернету для:</p>
+        <ul>
+          <li>Загрузки анекдотов из Firebase Firestore</li>
+          <li>Работы Firebase-сервисов (уведомления, ошибки)</li>
+          <li>Обновления данных приложения</li>
+        </ul>
+
+        <p>
+          Все соединения защищены <strong>HTTPS</strong> и зашифрованы.
+        </p>
+      </div>
+
+      <!-- Секция 7 -->
+      <div class="section" id="section-7">
+        <h2>7. Реклама и монетизация</h2>
+        <p>
+          <strong>Текущая версия приложения:</strong> без рекламы и платных функций.
+        </p>
+
+        <p>
+          <strong>В будущем:</strong> Если в приложение добавится реклама или платные функции,
+          эта политика конфиденциальности будет обновлена. Вы будете уведомлены об изменениях.
+        </p>
+
+        <div class="highlight">
+          <p>💡 Рекламные сети могут собирать анонимные данные согласно
+          <a href="https://support.google.com/admanager/answer/6084685" target="_blank">политике Google</a></p>
+        </div>
+      </div>
+
+      <!-- Секция 8 -->
+      <div class="section" id="section-8">
+        <h2>8. Права пользователя</h2>
+        <p>Вы имеете право:</p>
+
+        <ul>
+          <li>📥 <strong>Доступ:</strong> Запросить информацию, какие данные о вас собраны</li>
+          <li>✏️ <strong>Изменение:</strong> Обновить или исправить данные в приложении</li>
+          <li>🗑️ <strong>Удаление:</strong> Удалить приложение и все локальные данные</li>
+          <li>🚫 <strong>Отказ:</strong> Отключить уведомления и сбор данных об ошибках</li>
+          <li>📤 <strong>Переносимость:</strong> Экспортировать избранное (вручную)</li>
+        </ul>
+
+        <h3>Как удалить данные:</h3>
+        <ol>
+          <li>Откройте приложение и перейдите в Настройки</li>
+          <li>Выберите "Сбросить данные" или "Очистить кэш"</li>
+          <li>Удалите приложение со своего устройства</li>
+          <li>Все локальные данные будут удалены</li>
+        </ol>
+      </div>
+
+      <!-- Секция 9 -->
+      <div class="section" id="section-9">
+        <h2>9. Изменение политики</h2>
+        <p>
+          Мы можем обновлять эту политику конфиденциальности при добавлении
+          новых функций или сервисов.
+        </p>
+
+        <h3>Как вы будете уведомлены:</h3>
+        <ul>
+          <li>📱 <strong>В приложении:</strong> Уведомление при запуске</li>
+          <li>🔗 <strong>На сайте:</strong> Эта страница будет обновлена</li>
+          <li>⏰ <strong>Дата обновления:</strong> Указана вверху страницы</li>
+        </ul>
+
+        <p>
+          Продолжение использования приложения означает согласие с новой политикой.
+        </p>
+      </div>
+
+      <!-- Секция 10 -->
+      <div class="section" id="section-10">
+        <h2>10. Контакты и поддержка</h2>
+        <p>Если у вас есть вопросы о конфиденциальности, свяжитесь с нами:</p>
+
+        <div class="contact-box">
+          <h3>📧 Email</h3>
+          <div class="contact-item">
+            <span class="icon">✉️</span>
+            <a href="mailto:klaHip@yandex.ru">klaHip@yandex.ru</a>
+          </div>
+
+          <h3 style="margin-top: 20px;">💬 Telegram</h3>
+          <div class="contact-item">
+            <span class="icon">📱</span>
+            <a href="https://t.me/banochkapivchika" target="_blank">@banochkapivchika</a>
+          </div>
+
+          <h3 style="margin-top: 20px;">📍 GitHub</h3>
+          <div class="contact-item">
+            <span class="icon">🐙</span>
+            <a href="https://github.com/renz1k" target="_blank">github.com/renz1k</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Пользовательское соглашение -->
+      <div class="section">
+        <h2>11. Пользовательское соглашение</h2>
+
+        <h3>Условия использования:</h3>
+        <ul>
+          <li>✅ Приложение предназначено только для <strong>личного использования</strong></li>
+          <li>✅ Содержимое анекдотов распространяется в образовательных целях</li>
+          <li>⚠️ Может содержать нецензурную лексику — <strong>рекомендуется для возраста 16+</strong></li>
+          <li>🚫 Запрещено: Коммерческое использование, переиздание без разрешения</li>
+        </ul>
+
+        <h3>Ответственность разработчика:</h3>
+        <ul>
+          <li>Разработчик не несёт ответственности за содержание анекдотов</li>
+          <li>Приложение предоставляется "как есть" без гарантий</li>
+          <li>Разработчик не ответственен за ущерб, вызванный использованием приложения</li>
+          <li>Мы стараемся обеспечить безопасность, но не можем гарантировать отсутствие ошибок</li>
+        </ul>
+
+        <div class="warning">
+          <p>⚠️ <strong>Отказ от ответственности:</strong> Используя приложение,
+          вы соглашаетесь, что разработчик не несёт ответственности за какие-либо
+          убытки, прямые или косвенные, вызванные использованием Anekdots B.</p>
+        </div>
+      </div>
+
+      <!-- Заключение -->
+      <div class="section">
+        <h2>12. Заключение</h2>
+        <div class="success">
+          <p>
+            🎉 <strong>Резюме:</strong> Мы глубоко уважаем вашу приватность.
+            Мы не продаём ваши данные, не отслеживаем ваше местоположение и не требуем
+            персональной информации. Приложение работает локально на вашем устройстве
+            с минимальной необходимостью подключения к интернету.
+          </p>
+        </div>
+
+        <p>
+          Спасибо за доверие! 😊
+        </p>
+      </div>
+    </div>
   </div>
+
+  <footer>
+    <p><strong>Anekdots B</strong> — Приложение забавных анекдотов</p>
+    <p>© 2026. Все права защищены.</p>
+    <p style="margin-top: 15px; font-size: 0.9em; color: #777;">
+      Последнее обновление: май 2026 |
+      <a href="#" style="color: #999;">Наверх ↑</a>
+    </p>
+  </footer>
+
+  <!-- Кнопка "Наверх" -->
+  <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+  <script>
+    // Показать/скрыть кнопку "Наверх"
+    window.addEventListener('scroll', () => {
+      const button = document.getElementById('scrollToTop');
+      if (window.pageYOffset > 300) {
+        button.classList.add('show');
+      } else {
+        button.classList.remove('show');
+      }
+    });
+
+    // Прокрутка вверх
+    document.getElementById('scrollToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scrolling для ссылок в TOC
+    document.querySelectorAll('.toc a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
